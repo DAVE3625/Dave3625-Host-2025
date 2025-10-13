@@ -4,7 +4,7 @@
 # DAVE3625 - Lab5
 
 <p align="center">
-  <a href="https://github.com/DAVE3625/DAVE3625-24H/tree/main/Lab4">
+  <a href="https://github.com/DAVE3625/Dave3625-Host-2025/tree/main/Lab5">
     <img src="img/header.png" alt="Classification Algorithms" width="auto" height="auto">
   </a>
 </p>
@@ -13,9 +13,9 @@
   KNN and SVM on Wine Quality Dataset<br>
   <br />
   ·
-  <a href="https://github.com/DAVE3625/DAVE3625-24H/issues">Report Bug</a>
+  <a href="https://github.com/DAVE3625/Dave3625-Host-2025/issues">Report Bug</a>
   ·
-  <a href="https://github.com/DAVE3625/DAVE3625-24H/issues">Request Feature</a>
+  <a href="https://github.com/DAVE3625/Dave3625-Host-2025/issues">Request Feature</a>
 </p>
 
 ## Table of Contents
@@ -32,60 +32,75 @@
     - [Task 6: Apply Support Vector Machine (SVM) Classifier](#task-6-apply-support-vector-machine-svm-classifier)
     - [Task 7: Compare the Performance of Different Classifiers and General Reflection](#task-7-compare-the-performance-of-different-classifiers-and-general-reflection)
 
-
 </details>
 
 ## About The Lab
 
 In this lab, you will gain hands-on experience with several key concepts and techniques in machine learning:
 
-- **K-Nearest Neighbors (KNN)**: Implement and understand the KNN algorithm for classification tasks.
-- **Support Vector Machines (SVM)**: Explore SVMs with different kernels and understand their impact on classification.
-- **Data standardization**: Understand the importance of feature scaling and standardization for certain algorithms.
-- **Evaluation Metrics**: Learn about **[Accuracy][whatis-accuracy]** and **[Confusion Matrix][whatis-confusion-matrix]** to evaluate classification models.
+- **K-Nearest Neighbors (KNN)**: Implement and understand the KNN algorithm for classification tasks.  
+- **Support Vector Machines (SVM)**: Explore SVMs with different kernels and understand their impact on classification.  
+- **Data standardization**: Understand the importance of feature scaling and standardization for certain algorithms.  
+- **Evaluation Metrics**: Learn about **[Accuracy][whatis-accuracy]** and **[Confusion Matrix][whatis-confusion-matrix]** to evaluate classification models.  
+
 ### Tools and Libraries
 
+We will use **pandas**, **numpy**, **matplotlib**, **seaborn**, and **scikit-learn** for this lab.
 
+---
 
 ### Instructions
 
 In this lab, you will work with the Wine Quality dataset to predict wine quality using various classification algorithms.
-- Follow the instructions from the tasks.
-- Watch the videos
-- Feel free to look at the hints
-- Contact the TA's if you have any doubts or questions
 
+- Follow the instructions from the tasks.  
+- Watch the videos.  
+- Feel free to look at the hints.  
+- Contact the TA's if you have any doubts or questions.  
 
-**Check the Solution**: Try your best before looking at the solutioons.
+**Check the Solution**: Try your best before looking at the solutions.
 
 Good luck, and enjoy the lab!
+
+---
 
 ## Imports
 
 We will be using the following packages in this lab:
 
-- `pandas`: For data manipulation and analysis.
-- `numpy`: For numerical operations.
-- `matplotlib`: For data visualization.
-- `seaborn`: For statistical data visualization.
-- `scikit-learn`: For machine learning algorithms and evaluation metrics.
+- `pandas`: For data manipulation and analysis.  
+- `numpy`: For numerical operations.  
+- `matplotlib`: For data visualization.  
+- `seaborn`: For statistical data visualization.  
+- `scikit-learn`: For machine learning algorithms and evaluation metrics.  
 
-If you don't have them, you can install them in Anaconda Prompt (terminal for Mac).
+If you don't have them installed, use **UV** (our course package manager).  
+Make sure your virtual environment is activated before running these commands.
 
-**Remember to activate your environment first**
-
-With pip:
+**If you're having issues with finding the kernel do the following:**
 
 ```bash
-pip install pandas numpy matplotlib seaborn scikit-learn
+#Note that the name should be the same as the name of your virtual environment.
+python -m ipykernel install --user --name=venv
+#or
+python3 -m ipykernel install --user --name=venv
+#or 
+uv run python -m ipykernel install --user --name=venv
+
 ```
 
-With conda:
+**With UV:**
+
 ```bash
-conda install pandas numpy matplotlib seaborn scikit-learn
+uv add pandas numpy matplotlib seaborn scikit-learn
 ```
 
+If you want to install using pip instead (optional):
 
+```bash
+#in a cell in your notebook
+!pip install pandas numpy matplotlib seaborn scikit-learn
+```
 
 ```python
 # Import modules
@@ -498,32 +513,28 @@ Congratulations on completing the lab! You've done an excellent job working thro
 
 👏 **Well done!** 👏
 
-## Usefull links
+---
 
-[pandas cheatsheet][pandas-cheatsheet]
+## Useful Links
 
-[matplotlib cheatsheet][matplotlib-cheatsheet]
+[pandas cheatsheet][pandas-cheatsheet]  
+[matplotlib cheatsheet][matplotlib-cheatsheet]  
+[seaborn cheatsheet][seaborn-cheatsheet]  
+[sklearn cheatsheet][sklearn-cheatsheet]  
 
-[seaborn cheatsheet][seaborn-cheatsheet]
-
-[sklearn cheatsheet][sklearn-cheatsheet]
+---
 
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-<!-- shields -->
 [issues-shield]: https://img.shields.io/github/issues/umaimehm/Intro_to_AI_2021.svg?style=for-the-badge
-[issues-url]: https://github.com/DAVE3625/DAVE3625-24H/issues
+[issues-url]: https://github.com/DAVE3625/Dave3625-Host-2025/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/DAVE3625/DAVE3625-24H/blob/main/Lab1/LICENSE
+[license-url]: https://github.com/DAVE3625/Dave3625-Host-2025/blob/main/Lab0/LICENSE
 
-<!-- images -->
-
-
-<!-- documentation -->
+<!-- docs -->
 [pandas-doc]: https://pandas.pydata.org/docs/
 [numpy-doc]: https://numpy.org/doc/stable/
 [seaborn-doc]: https://seaborn.pydata.org/
-[sklearn-doc]: https://scikit-learn.org/0.21/documentation.html
+[sklearn-doc]: https://scikit-learn.org/stable/
 
 <!-- tutorials -->
 [pandas-cheatsheet]: https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf
@@ -531,9 +542,7 @@ Congratulations on completing the lab! You've done an excellent job working thro
 [sklearn-cheatsheet]: https://www.datacamp.com/cheat-sheet/scikit-learn-cheat-sheet-python-machine-learning
 [seaborn-cheatsheet]: https://www.kaggle.com/code/themlphdstudent/cheat-sheet-seaborn-charts
 
-
-<!-- links -->
-[regex]: https://www.geeksforgeeks.org/python-regex-cheat-sheet/
+<!-- references -->
 [solution]: solution.ipynb
 [whatis-accuracy]: https://developers.google.com/machine-learning/crash-course/classification/accuracy
 [whatis-confusion-matrix]: https://developers.google.com/machine-learning/crash-course/classification/true-false-positive-negative
