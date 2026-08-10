@@ -1,4 +1,4 @@
-# Intro to AI 2024
+# Intro to AI 2026
 DAVE3625 course at Oslomet. 
 
 Course content can be found here: 
