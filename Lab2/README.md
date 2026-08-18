@@ -63,7 +63,7 @@ StudentID, Age, email, hrsStudy, FinalGrade
   Hint: 
   ```
   #If you want to use the csv from this git set
-  # url = "https://github.com/DAVE3625/Dave3625-Host-2025/blob/main/Lab2/data/stud.csv"
+  # url = "https://raw.githubusercontent.com/DAVE3625/Dave3625-Host-2025/refs/heads/main/Lab2/data/stud.csv"
   # You can also download the csv and set
   # url="{filepath}/stud.csv"
   df = pd.read_csv(url, sep=',')
