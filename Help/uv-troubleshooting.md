@@ -13,16 +13,12 @@ When picking a kernel, you’re looking for something like
    - If your `uv` environment (e.g. `Lab2/.venv/bin/python`) is there, choose it!  
    - If not, keep troubleshooting
 
----
-
 ## Try the following (in order)
 1. Close and reopen the notebook (e.g. `lab0.ipynb`)
 2. Restart VS Code
 3. Command Palette again, this time run **Jupyter: Clear Jupyter Server Kernel Cache**.  
 4. Did you initialize `uv` in the correct directory?  
    - Each lab should have its own `.venv` unless you want one shared env (which we don't generally recommend) 
-
----
 
 ## A UV kernel shows up, but it's for another lab 
 That means VS Code found another `.venv` you created maybe in a parent folder or another lab.  

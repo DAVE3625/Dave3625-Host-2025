@@ -53,10 +53,10 @@ You can all pull from this repo. You cannot push because you don’t have access
 
    ```bash
    # HTTPS (asks for login/token on push)
-   git clone https://github.com/oslomet-dat250/Dave3625-Host-2025.git
+   git clone https://github.com/DAVE3625/Dave3625-Host-2025.git
 
    # SSH (needs setup, but no passwords later)
-   git clone git@github.com:oslomet-dat250/Dave3625-Host-2025.git
+   git clone git@github.com:DAVE3625/Dave3625-Host-2025.git
    ```
 3. Move into it:
 
@@ -91,7 +91,7 @@ Here are other ways to manage your own changes. They may be useful for other pro
 3. Add the original repo for updates:
 
    ```bash
-   git remote add upstream https://github.com/oslomet-dat250/Dave3625-Host-2025.git
+   git remote add upstream https://github.com/DAVE3625/Dave3625-Host-2025.git
    ```
 4. Make a branch, commit, push:
 

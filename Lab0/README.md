@@ -17,287 +17,172 @@
 <br />
 <h3 align="center">Dave3625 - Lab 0</h3>
 <p align="center">
-  <a href="https://github.com/DAVE3625/DAVE3625-Host-2025/tree/main/Lab0">
+  <a href="https://github.com/DAVE3625/Dave3625-Host-2025/tree/main/Lab0">
     <img src="img/logo.png" alt="Environment Setup" width="auto" height="auto">
   </a>
   <p align="center">
-    An exercise in setting up your Python environment and performing basic python tasks. <br /> This lab will walk you through setting up a Python virtual environment using UV, installing necessary packages, and setting up a Jupyter Notebook for further exercises.
+    Set up your Python environment with UV, then write your first Python.
     <br />
     ·
-    <a href="https://github.com/DAVE3625/DAVE3625-Host-2025/issues">Report Bug</a>
+    <a href="https://github.com/DAVE3625/Dave3625-Host-2025/issues">Report Bug</a>
     ·
-    <a href="https://github.com/DAVE3625/DAVE3625-Host-2025/issues">Request Feature</a>
+    <a href="https://github.com/DAVE3625/Dave3625-Host-2025/issues">Request Feature</a>
   </p>
 </p>
 
 
-<!-- ABOUT THE LAB -->
 ## About The Lab
 
-This lab focuses on setting up the necessary environment for AI and data science tasks, followed by a simple python exercise. You'll start by setting up a UV environment, installing essential Python libraries, and setting up Visual Studio Code with Jupyter Notebook for development.
+Getting your tools working is the boring part, so we do it first and get it over with. By the end of this lab you will have VS Code running notebooks against a UV environment, and you will have written some basic Python.
+
+You will repeat the setup steps once per lab. **Every lab is its own project with its own `.venv`**, so it is worth understanding them now.
 
 
-## Part 0: Choice of IDE
+## Before you start: get the lab files onto your machine
 
-We will focus on using Visual studio code during this course.
-You are free to use another IDE, just be aware that the TA's may not be able to help you debug eventual issues with your setup.
+The labs live in this GitHub repo. **They are not on your laptop yet, you have to get them first.**
 
+**Recommended:** clone once, then `git pull` before each lab to pick up our updates:
 
-### 1. Download Visual Studio Code
-
-Download Visual Studio Code from [here](https://code.visualstudio.com/).
-
-
-### 2. Install the Python Extension
-Install the official Python extension for Visual Studio Code.
-
-
-### 3. Install the Jupyter Extension
-Install the Jupyter extension for Visual Studio Code from the "Extensions" menu on the left.
-
-
-## Part 1: Environment Setup
-
-### 1. Download and Install UV
-
-UV is a fast Python package and project manager. Follow the instructions at [UV documentation](https://docs.astral.sh/uv/) to download and install UV.
-
-[UV install documentation](https://docs.astral.sh/uv/getting-started/installation/)
-
-For most systems, you can install UV using:
-**macOS/Linux:**
 ```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-# Alternatively use Homebrew
-brew install uv
+git clone https://github.com/DAVE3625/Dave3625-Host-2025.git
 ```
 
-**Windows:**
-```bash
-powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
-```
+**Or** go to [the repo page](https://github.com/DAVE3625/Dave3625-Host-2025), click the green **`< > Code`** button → **Download ZIP**, and unzip it. No Git needed, but you re-download each time we update the labs.
 
-Test if UV was installed correctly by typing in your CLI or terminal:
-```bash
-uv --version
-```
+Either way, unzip or clone somewhere you will find again, your Documents folder is fine. Then:
+
+**In VS Code: File → Open Folder, and pick the `Lab0` folder** — not the whole `Dave3625-Host-2025` folder.
+
+`Lab0` is a folder *inside* what you just downloaded. Opening it directly keeps your terminal in the right place for the setup below, and avoids creating a project at the top level by mistake.
+
+> New to the repo? [Help/navigating-the-repo.md](../Help/navigating-the-repo.md) explains how every lab is laid out. Git questions → [Help/git.md](../Help/git.md).
 
 
-### 2. Create a New UV Project
+## Part 0: Install your tools
 
-**Open a new terminal in VS code, move into the Lab0 folder *(double check this!)* and initialize the UV project:**
+We use **Visual Studio Code** in this course. You may use another IDE, but the TAs may not be able to help you debug it.
+
+1. Install [Visual Studio Code](https://code.visualstudio.com/).
+2. In VS Code, open the **Extensions** menu on the left and install the **Python** extension.
+3. Install the **Jupyter** extension the same way.
+4. Install **UV** — [installation docs](https://docs.astral.sh/uv/getting-started/installation/):
+
+   ```bash
+   # macOS / Linux
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+
+   # Windows
+   powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+   ```
+
+5. Check it worked:
+
+   ```bash
+   uv --version
+   ```
+
+   Not recognized? Restart your terminal.
+
+
+## Part 1: Set up the environment
+
+Open a terminal in VS Code and run these **from inside the `Lab0` folder**:
+
 ```bash
 cd Lab0
-uv init
-```
-
-
-*Please make sure you are in the right folder!*
-
-This will create a `pyproject.toml` file and a `.venv` folder containing your virtual environment for the project. The `pyproject.toml` file manages your project's dependencies and settings, while the `.venv` folder contains the isolated Python environment with all installed packages. You can select this environment as your Python interpreter in your notebook.
-
-**Note:** Creating separate environments for different projects/labs keeps everything organized and prevents dependency problems. It makes sure that changes in one project won't create issues in another, which will make your work easier to manage and debug. 
-
-
-### 3. Install Python Packages
-
-In order to use notebooks using uv you must install: jupyter notebook and ipykernel using the following command:
-
-```bash 
+uv init --bare
 uv add jupyter ipykernel
 ```
 
+What each step does:
 
-### 4. Create a New Jupyter Notebook
-Create a new Jupyter Notebook by creating a file with a .ipynb extension (e.g., make a new file and call it lab0.ipynb).
+| Command | Result |
+|---------|--------|
+| `uv init --bare` | Creates `pyproject.toml` — your project's dependency list. **Nothing else appears yet.** |
+| `uv add jupyter ipykernel` | Creates `.venv` and `uv.lock`, and installs the packages into `.venv`. |
+
+> **Check your folder before running `uv init`.** If a `pyproject.toml` exists in a parent folder, UV attaches your lab to *that* project instead of creating a new one, and you will end up selecting the wrong kernel later.
+
+Now create your notebook:
+
+1. Make a new file called `lab0.ipynb`.
+2. Open it and select the Python interpreter in the **top-right corner**. Pick the one under `Lab0/.venv`.
+
+Can't find the environment? → **[Help/uv-troubleshooting.md](../Help/uv-troubleshooting.md)**
+
+More UV commands → **[Help/uv-cheatsheet.md](../Help/uv-cheatsheet.md)**
+
+> This folder ships a `.python-version` file pinning Python 3.12, so everyone gets a version new enough for Task 6.
 
 
+## Part 2: Python exercises
 
-### 5. Open the Notebook in VSCode
-Open the notebook file in Visual Studio Code and select the UV environment Python interpreter in the top right.
+Solve these in `lab0.ipynb`. Compare with [Solution.ipynb](Solution.ipynb) when you are done.
 
-Can't find the environment? Have a look at the [troubleshooting helper](Lab0/uv-troubleshooting.md). 
-
-## Part 2: Python Exercises
+**Printable version:** [Lab-0-exercises.pdf](./Lab-0-exercises.pdf)
 
 ### Task 1: "Hello World!"
 
-Write and run a Python program that prints `Hello World!`.
+Write and run a program that prints `Hello World!`.
 
-1. Create a new Python file or open a Jupyter Notebook.
-2. Write a program that outputs the text `'Hello World!'` to the console.
-3. Run the program/cell to ensure it executes correctly.
-
-### Task 2: Basic Arithmetic
+### Task 2: Basic arithmetic
 
 Perform basic arithmetic operations in Python.
 
 1. Write code to:
-   - Add two numbers.
-   - Multiply two numbers.
-   - Divide one number by another.
+    - Add two numbers.
+    - Multiply two numbers.
+    - Divide one number by another.
 2. Display the results of each calculation.
 
 ### Task 3: Variables
 
 Learn to store and use values in variables.
-
 1. Create variables to store a name and an age.
 2. Print the values of the variables in a formatted string.
 
 ### Task 4: Simple loops
 
 Use a loop to repeat an action multiple times.
-
 1. Write a for-loop that iterates over a range of numbers.
 2. In each iteration, print a line of text that includes the current iteration number.
 
-### Task 5: Conditional Statements
+### Task 5: Conditional statements
 
 Implement decision-making in your code using if-else statements.
-
 1. Write an if-statement that checks if a number is greater than 5.
 2. Print a message based on whether the condition is true or false.
 
-### Task 6: Match-Case Statements(requires Python 3.10+)
+### Task 6: Match-case statements *(needs Python 3.10+)*
 
 Learn to use Python's modern match-case syntax for pattern matching (Python 3.10+).
+1. Create a variable holding a day of the week as a string, e.g. `"Monday"`.
+2. Use a `match` / `case` statement to print:
+   - `"Start of the work week!"` for Monday
+   - `"Midweek already!"` for Wednesday
+   - `"Almost weekend!"` for Friday
+   - `"Weekend time!"` for Saturday or Sunday
+   - `"Just another day"` for anything else
+3. Test it with different days.
 
-1. Create a variable that stores a day of the week (as a string, e.g., "Monday", "Tuesday", etc.).
-2. Use a match-case statement to:
-   - Print "Start of the work week!" for Monday
-   - Print "Midweek already!" for Wednesday
-   - Print "Almost weekend!" for Friday
-   - Print "Weekend time!" for Saturday or Sunday
-   - Print "Just another day" for any other day
-3. Test your code with different day values.
+**Bonus:** make it handle both lowercase and uppercase input, e.g `"monday"` and `"Monday"`.
 
-**Bonus:** Extend the match-case to handle both uppercase and lowercase input (e.g., "monday" and "Monday").
 
-## Additional information
+## Next
 
-#### 1. **Why Use UV?**
-   - **UV** is significantly faster than conda and pip for package installation and environment management.
-   - It provides better dependency resolution and handles Python version management automatically.
-   - UV creates isolated environments by default, preventing dependency conflicts.
+**Next session is [Lab 2](../Lab2/README.md) — Pandas and data wrangling.**
 
-#### 2. **Verifying UV Installation**
-   - After installing, verify that UV is installed correctly by typing `uv --version` in your terminal. If the command is not recognized, restart your terminal or check your PATH settings.
+[Lab 1](../Lab1/README.md) is optional self-study: a Python and Jupyter reference notebook. Read it before Lab 2 if you are new to Python, or come back to it when you get stuck.
 
-#### 3. **Managing Project Dependencies**
-   - UV uses `pyproject.toml` files to manage dependencies, which is the modern Python standard.
-   - Use `uv add package_name` to add dependencies and `uv remove package_name` to remove them.
-
-#### 4. **Python Version Management**
-   - UV can automatically install and manage Python versions. Use `uv python install 3.11` to install Python 3.11.
-   - Projects can specify their Python version requirements in `pyproject.toml`.
-
-#### 5. **Lockfiles for Reproducibility**
-   - UV generates `uv.lock` files that ensure reproducible installations across different systems.
-   - Always commit both `pyproject.toml` and `uv.lock` to version control.
-
-#### 6. **Interpreter Selection in VS Code**
-   - After opening a Jupyter Notebook in VS Code, ensure you select the correct Python interpreter from the UV environment in the top right corner to avoid import errors.
-   - The interpreter path will typically be in `.venv/bin/python` or `.venv/Scripts/python.exe` (Windows).
-
-## Useful commands
-
-#### 1. **Basic UV Commands**
-   - **Check UV Version:**
-     ```bash
-     uv --version
-     ```
-   - **Update UV:**
-     ```bash
-     uv self update
-     ```
-
-#### 2. **Project Management**
-   - **Initialize a New Project:**
-     ```bash
-     uv init myproject
-     ```
-   - **Initialize in Current Directory:**
-     ```bash
-     uv init
-     ```
-   - **Sync Dependencies (like activating environment):**
-     ```bash
-     uv sync
-     ```
-   - **Run Commands in the Project Environment:**
-     ```bash
-     uv run python script.py
-     uv run jupyter notebook
-     ```
-  - **Activate environment in the terminal:**
-     ```bash
-     # macOS/linux
-     source .venv/bin/activate
-     # Windows
-     source .venv\scripts\activate
-     ```
-
-#### 3. **Installing and Managing Packages**
-   - **Add a Package:**
-     ```bash
-     uv add package_name
-     ```
-   - **Add Multiple Packages:**
-     ```bash
-     uv add package1 package2
-     ```
-   - **Add a Specific Version of a Package:**
-     ```bash
-     uv add "package_name==2.1"
-     ```
-   - **Add Development Dependencies:**
-     ```bash
-     uv add --dev pytest black
-     ```
-   - **Remove a Package:**
-     ```bash
-     uv remove package_name
-     ```
-     
-#### 4. **Python Version Management**
-   - **Install a Python Version:**
-     ```bash
-     uv python install 3.11
-     ```
-   - **List Available Python Versions:**
-     ```bash
-     uv python list
-     ```
-   - **Set Python Version for Project:**
-     ```bash
-     uv python pin 3.11
-     ```
-
-#### 5. **Miscellaneous Commands**
-   - **List All Installed Packages:**
-     ```bash
-     uv tree
-     ```
-   - **Show Project Information:**
-     ```bash
-     uv info
-     ```
-   - **Lock Dependencies:**
-     ```bash
-     uv lock
-     ```
-   - **Clean Cache:**
-     ```bash
-     uv cache clean
-     ```
 
 ## License
+
 Distributed under the MIT License. See `LICENSE` for more information.
 
-<!-- MARKDOWN LINKS & IMAGES --> 
+<!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [issues-shield]: https://img.shields.io/github/issues/umaimehm/Intro_to_AI_2021.svg?style=for-the-badge
 [issues-url]: https://github.com/DAVE3625/Dave3625-Host-2025/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/DAVE3625/DAVE3625-Host-2025/blob/main/Lab0/LICENSE
+[license-url]: https://github.com/DAVE3625/Dave3625-Host-2025/blob/main/Lab0/LICENSE

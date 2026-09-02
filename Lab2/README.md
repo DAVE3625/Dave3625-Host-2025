@@ -36,18 +36,40 @@
 
 <!-- ABOUT THE LAB -->
 ## About The Lab
+
+> This is the **first session after [Lab 0](../Lab0/README.md)**. [Lab 1](../Lab1/README.md) is optional self-study — if you skipped it, you are not behind.
+
 Most of the time spent working on AI is time spent preparing data. You need to figure out what data points to use, and if you can combine data points to get a better model. 
 
 During this week's lab, we will do a deep dive into [Pandas][Pandas] DataFrames and look at visualization libraries like Matplotlib, Seaborn, and Plotly.
 
 We will be using [pandas][pandas-doc], [matplotlib][matplotlib-doc], [seaborn][seaborn-doc] and [numpy][numpy-doc].
 
+**Walkthrough:** [Pandas.ipynb][Pandas] · **Tasks:** below · **Answer key:** [solution.ipynb][solution] · **Printable version:** [Lab-2-exercises.pdf](./Lab-2-exercises.pdf)
+
+
+## Setup
+
+Lab 2 is its own project, so it needs its own environment. In a VS Code terminal:
+
+```bash
+cd Lab2
+uv init --bare
+uv add pandas numpy matplotlib seaborn scipy jupyter ipykernel
+```
+
+Then open [Pandas.ipynb][Pandas] and select the `Lab2/.venv` kernel in the **top-right corner**.
+
+> `uv init --bare` only creates `pyproject.toml`. The `.venv` folder appears on the `uv add` step.
+
+Stuck? → [Help/uv-troubleshooting.md](../Help/uv-troubleshooting.md) · [Help/uv-cheatsheet.md](../Help/uv-cheatsheet.md)
+
 
 ----------------------------------------------
 
 If we have time, we will also go through the student dataset in the file stud.csv. 
 
-That DataFrame has 50 entries with:
+The `stud.csv` DataFrame has 50 entries with:
 StudentID, Age, email, hrsStudy, FinalGrade
 
 
@@ -144,7 +166,7 @@ StudentID, Age, email, hrsStudy, FinalGrade
   nan stands for Not a Number, and can not be converted to int or float. The reason we convert missing values to nan is that pandas lets us handle those values quite simple.
   If you want to assign nan's a value, you can use
   ```python
-  df["Column"].replace(np.nan, VALUE, inplace=True)
+  df["Column"] = df["Column"].replace(np.nan, VALUE)
   #Column is a placeholder for the column you want to change. 
   #In this example we have the columns StudentID,Age,email,hrsStudy,FinalGrade
   ```
@@ -159,14 +181,12 @@ StudentID, Age, email, hrsStudy, FinalGrade
   
   **A:**
   
-  1.  If you get an error and your code looks correct, try to reinstall matplotlib.
-      Go to your conda prompt (make sure you're in the right env) and write:
+  1.  If you get an error and your code looks correct, reinstall matplotlib.
+      In your terminal, make sure you are in the `Lab2` folder, then run:
+      ```bash
+      uv add --reinstall matplotlib
       ```
-      conda uninstall matplotlib
-      conda update
-      conda install matplotlib
-      ```
-      rest the kernel in jupyter notebook and try again
+      Restart the kernel in your notebook and try again.
   
   2.  If your code runs, but only produce
   ```
@@ -181,13 +201,15 @@ StudentID, Age, email, hrsStudy, FinalGrade
   **Q: How do I remove outliers?**
   
   **A:**
-  Check [Geeksforgeeks][geeks] for a hint.
-  On this set edit
+  Check [Geeksforgeeks][geeks] for background on the z-score method.
+
+  In this lab we use z-scores to find the outliers, then drop those rows:
   ```python
-  filtered_entries = (abs_z_scores < 3).all(axis=1)
-  #to
-  filtered_entries = (abs_z_scores < 3)
+  z_scores = stats.zscore(df["FinalGrade"])
+  abs_z_scores = np.abs(z_scores)
+  df.drop(df[abs_z_scores > 3].index, inplace=True)
   ```
+  This is the approach used in [solution.ipynb][solution].
   **Q: Can you provide some tutorials for jupyter and pandas?**
   
   I need some good tutorials to get me started. Can you recommend any?
@@ -199,6 +221,12 @@ StudentID, Age, email, hrsStudy, FinalGrade
   [This site][pandas-tutorial] covers many important aspects of pandas, and I use it often as a reference.
 
 </details>
+
+
+## Next
+
+**Next session is [Lab 3](../Lab3/README.md) — feature engineering on the Titanic dataset.**
+
 
 <!-- LICENSE -->
 ## License
