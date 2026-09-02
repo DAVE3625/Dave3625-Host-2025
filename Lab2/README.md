@@ -60,6 +60,8 @@ uv add pandas numpy matplotlib seaborn scipy jupyter ipykernel
 
 Then open [Pandas.ipynb][Pandas] and select the `Lab2/.venv` kernel in the **top-right corner**.
 
+For the tasks below, create your own notebook in the `Lab2` folder (e.g. `lab2.ipynb`) and select the same `Lab2/.venv` kernel. [Pandas.ipynb][Pandas] is the walkthrough — you write your answers in your own notebook.
+
 > `uv init --bare` only creates `pyproject.toml`. The `.venv` folder appears on the `uv add` step.
 
 Stuck? → [Help/uv-troubleshooting.md](../Help/uv-troubleshooting.md) · [Help/uv-cheatsheet.md](../Help/uv-cheatsheet.md)
@@ -166,7 +168,7 @@ StudentID, Age, email, hrsStudy, FinalGrade
   nan stands for Not a Number, and can not be converted to int or float. The reason we convert missing values to nan is that pandas lets us handle those values quite simple.
   If you want to assign nan's a value, you can use
   ```python
-  df["Column"] = df["Column"].replace(np.nan, VALUE)
+  df["Column"].replace(np.nan, VALUE, inplace=True)
   #Column is a placeholder for the column you want to change. 
   #In this example we have the columns StudentID,Age,email,hrsStudy,FinalGrade
   ```
@@ -181,12 +183,14 @@ StudentID, Age, email, hrsStudy, FinalGrade
   
   **A:**
   
-  1.  If you get an error and your code looks correct, reinstall matplotlib.
-      In your terminal, make sure you are in the `Lab2` folder, then run:
-      ```bash
-      uv add --reinstall matplotlib
+  1.  If you get an error and your code looks correct, try to reinstall matplotlib.
+      Go to your conda prompt (make sure you're in the right env) and write:
       ```
-      Restart the kernel in your notebook and try again.
+      conda uninstall matplotlib
+      conda update
+      conda install matplotlib
+      ```
+      rest the kernel in jupyter notebook and try again
   
   2.  If your code runs, but only produce
   ```
@@ -201,15 +205,13 @@ StudentID, Age, email, hrsStudy, FinalGrade
   **Q: How do I remove outliers?**
   
   **A:**
-  Check [Geeksforgeeks][geeks] for background on the z-score method.
-
-  In this lab we use z-scores to find the outliers, then drop those rows:
+  Check [Geeksforgeeks][geeks] for a hint.
+  On this set edit
   ```python
-  z_scores = stats.zscore(df["FinalGrade"])
-  abs_z_scores = np.abs(z_scores)
-  df.drop(df[abs_z_scores > 3].index, inplace=True)
+  filtered_entries = (abs_z_scores < 3).all(axis=1)
+  #to
+  filtered_entries = (abs_z_scores < 3)
   ```
-  This is the approach used in [solution.ipynb][solution].
   **Q: Can you provide some tutorials for jupyter and pandas?**
   
   I need some good tutorials to get me started. Can you recommend any?
