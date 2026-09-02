@@ -36,18 +36,42 @@
 
 <!-- ABOUT THE LAB -->
 ## About The Lab
+
+> This is the **first session after [Lab 0](../Lab0/README.md)**. [Lab 1](../Lab1/README.md) is optional self-study — if you skipped it, you are not behind.
+
 Most of the time spent working on AI is time spent preparing data. You need to figure out what data points to use, and if you can combine data points to get a better model. 
 
 During this week's lab, we will do a deep dive into [Pandas][Pandas] DataFrames and look at visualization libraries like Matplotlib, Seaborn, and Plotly.
 
 We will be using [pandas][pandas-doc], [matplotlib][matplotlib-doc], [seaborn][seaborn-doc] and [numpy][numpy-doc].
 
+**Walkthrough:** [Pandas.ipynb][Pandas] · **Tasks:** below · **Answer key:** [solution.ipynb][solution] · **Printable version:** [Lab-2-exercises.pdf](./Lab-2-exercises.pdf)
+
+
+## Setup
+
+Lab 2 is its own project, so it needs its own environment. In a VS Code terminal:
+
+```bash
+cd Lab2
+uv init --bare
+uv add pandas numpy matplotlib seaborn scipy jupyter ipykernel
+```
+
+Then open [Pandas.ipynb][Pandas] and select the `Lab2/.venv` kernel in the **top-right corner**.
+
+For the tasks below, create your own notebook in the `Lab2` folder (e.g. `lab2.ipynb`) and select the same `Lab2/.venv` kernel. [Pandas.ipynb][Pandas] is the walkthrough — you write your answers in your own notebook.
+
+> `uv init --bare` only creates `pyproject.toml`. The `.venv` folder appears on the `uv add` step.
+
+Stuck? → [Help/uv-troubleshooting.md](../Help/uv-troubleshooting.md) · [Help/uv-cheatsheet.md](../Help/uv-cheatsheet.md)
+
 
 ----------------------------------------------
 
 If we have time, we will also go through the student dataset in the file stud.csv. 
 
-That DataFrame has 50 entries with:
+The `stud.csv` DataFrame has 50 entries with:
 StudentID, Age, email, hrsStudy, FinalGrade
 
 
@@ -199,6 +223,12 @@ StudentID, Age, email, hrsStudy, FinalGrade
   [This site][pandas-tutorial] covers many important aspects of pandas, and I use it often as a reference.
 
 </details>
+
+
+## Next
+
+**Next session is [Lab 3](../Lab3/README.md) — feature engineering on the Titanic dataset.**
+
 
 <!-- LICENSE -->
 ## License

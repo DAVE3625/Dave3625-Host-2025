@@ -47,8 +47,6 @@ In this lab, you will gain hands-on experience with several key concepts and tec
 
 We will use **pandas**, **numpy**, **matplotlib**, **seaborn**, and **scikit-learn** for this lab.
 
----
-
 ### Instructions
 
 In this lab, you will work with the Wine Quality dataset to predict wine quality using various classification algorithms.
@@ -61,8 +59,6 @@ In this lab, you will work with the Wine Quality dataset to predict wine quality
 **Check the Solution**: Try your best before looking at the solutions.
 
 Good luck, and enjoy the lab!
-
----
 
 ## Imports
 
@@ -119,7 +115,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import confusion_matrix, accuracy_score
 ```
 
-
 ## Tasks
 ## Task 1: Load and Explore the Datset
 The Wine Quality dataset (UCI Machine Learning Repository) contains information about red and white variants of the Portuguese "Vinho Verde" wine.
@@ -143,8 +138,6 @@ Instructions:
   **Hint 3**: To get a summary of the dataset, you can use the `.info()` method for data types and the `.describe()` method for descriptive statistics.
 
 </details>
-
-****
 
 ## Task 2: Preprocess the Data
 
@@ -178,8 +171,6 @@ Instructions:
   ```
 
 </details>
-
-****
 
 
 ## Task 3: Feature Scaling - Data Standardization
@@ -225,7 +216,6 @@ Instructions:
 
 </details>
 
-****
 
 ## Task 4: Split the Dataset
 
@@ -246,10 +236,6 @@ Instructions:
 
   ```
 </details>
-
-****
-
-
 
 
 
@@ -277,7 +263,6 @@ Instructions:
 - **False Positives (FP)**: Incorrectly predicted positive observations (Type I error).
 - **False Negatives (FN)**: Incorrectly predicted negative observations (Type II error).
 
-****
 ## Task 5: Apply K-Nearest Neighbors (KNN) Classifier
 Now, let's build and evaluate a KNN classifier.
 
@@ -353,9 +338,6 @@ For a more in-depth understanding of K-Nearest Neighbors (KNN), check out this e
 [![StatQuest: K-Nearest Neighbors (KNN)](https://img.youtube.com/vi/HVXime0nQeI/0.jpg)](https://www.youtube.com/watch?v=HVXime0nQeI&t=249s&ab_channel=StatQuestwithJoshStarmer)
 
 
-****
-
-
 ## Task 6: Apply Support Vector Machine (SVM) Classifier
 
 Let's apply SVM with different kernels and evaluate the performance.
@@ -414,7 +396,6 @@ Instructions:
   ```
 
 </details>
-
 <br>
 
 **Additional Resources**
@@ -426,9 +407,6 @@ For a more in-depth understanding of Support Vector Machines (SVM), check out th
 
 - [(3 Part video series on SVM) StatQuest: Support Vector Machines (SVM)](https://www.youtube.com/watch?v=efR1C6CvhmE&ab_channel=StatQuestwithJoshStarmer)
 - [(Article) GeeksforGeeks: Support Vector Machine Algorithm](https://www.geeksforgeeks.org/support-vector-machine-algorithm/)
-
-****
-
 
 
 ## Task 7: Compare the Performance of Different Classifiers and General Reflection
@@ -481,9 +459,6 @@ plt.show()
 ```
 </details>
 
-
-****
-
 ### Reflection
 
 **1. Which classifier performed the best based on accuracy?**
@@ -493,9 +468,6 @@ plt.show()
 **3. Could you use the models trained on red wine to predict the quality if the different white wines?**
 
 **4. Reflect on how you might apply the techniques learned in this lab to other datasets and machine learning problems.**
-
-
-
 
 
 ## Great Job!
@@ -510,10 +482,7 @@ Congratulations on completing the lab! You've done an excellent job working thro
 - **Applied Support Vector Machine (SVM)**: You trained SVM classifiers with different kernels and evaluated their performance.
 - **Compared classifiers**: You compared the performance of KNN and SVM classifiers and reflected on their results.
 
-
 👏 **Well done!** 👏
-
----
 
 ## Useful Links
 
@@ -521,8 +490,6 @@ Congratulations on completing the lab! You've done an excellent job working thro
 [matplotlib cheatsheet][matplotlib-cheatsheet]  
 [seaborn cheatsheet][seaborn-cheatsheet]  
 [sklearn cheatsheet][sklearn-cheatsheet]  
-
----
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [issues-shield]: https://img.shields.io/github/issues/umaimehm/Intro_to_AI_2021.svg?style=for-the-badge

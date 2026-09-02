@@ -35,8 +35,6 @@
 
 In this lab, the goal is to uderstand and apply **Decision Trees**, **Random Forest**, and **Naive Bayes** classifiers on binary and multiclass classification problems.
 
-
-
 ### Instructions
 
 In this lab, you will work with the following dataset:
@@ -89,7 +87,6 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler, OneHotEncoder
 from sklearn.metrics import confusion_matrix, accuracy_score, classification_report
 ```
 
-
 ## Tasks
 
 ## Task 1: Load and Explore the Student Performance Datset
@@ -137,8 +134,6 @@ Instructions:
 
 </details>
 
-****
-
 ## Task 2: Prepare the target variable
 
 First we should rename the columns G1, G2 and G3 for conveniance. Then we will create it a binary class for Pass/Fail so that we can use certain machine learning algorithms on the data.
@@ -173,11 +168,7 @@ Otherwise, passed is False.
   # Create binary target variable
   df['passed'] = df['final_grade'].apply(lambda x: True if x >= 10 else False)
   ```
-
-
 </details>
-
-****
 
 
 ## Task 3: Data Preprocessing
@@ -219,21 +210,13 @@ Instructions:
   missing_values = df_numerical.isnull().sum()
   print(missing_values)
   ```
-
-
-
 </details>
-
-****
 
 ## Task 4: Split the Dataset
 
 We need to split the dataset into training and testing sets.
 
 Instructions:
-
-
-
 1. Separate features and target variable
 
 2. Use train_test_split to split the data (e.g., 70% training, 30% testing).
@@ -256,19 +239,8 @@ Instructions:
   # Split the data into training and testing sets
   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
   ```
-  
 
 </details>
-
-
-
-****
-
-
-
-
-
-
 
 ## Task 5: Apply Decision Tree Classifier
 
@@ -318,6 +290,7 @@ Instructions:
   ```
 
 </details>
+<br>
 
 **Additional Resources**
 
@@ -327,9 +300,6 @@ For a more in-depth understanding of Decision Trees, check out this excellent vi
 
 Readings: 
 https://www.geeksforgeeks.org/decision-tree/
-
-
-****
 
 ## Task 6: Apply Random Forest Classifier
 
@@ -379,6 +349,7 @@ Let's apply a Random Forest classifier and evaluate its performance.
   ```
 
 </details>
+<br>
 
 **Additional Resources**
 
@@ -391,10 +362,6 @@ For a more in-depth understanding of Random Forests, check out this excellent 2 
 
 Readings:
 - [Random Forest Algorithm - GeeksforGeeks](https://www.geeksforgeeks.org/random-forest-algorithm-in-machine-learning/)
-
-****
-
-
 
 ## Task 7: Apply Naive Bayes Classifier
 
@@ -442,8 +409,8 @@ Let's apply a Naive Bayes classifier and evaluate its performance.
   print("Confusion Matrix:")
   print(cm_nb)
   ```
-
 </details>
+<br>
 
 **Additional Resources**
 
@@ -455,8 +422,6 @@ For a more in-depth understanding of Naive Bayes, check out this excellent video
 
 Readings:
 - [Naive Bayes Algorithm - GeeksforGeeks](https://www.geeksforgeeks.org/naive-bayes-classifiers/)
-
-****
 
 ## Task 8: Reflection
 
@@ -479,7 +444,6 @@ In this section, you will reflect on the tasks you have completed and consider a
 5. **Different Datasets**: Try applying the same models and preprocessing steps to a different dataset. How do the results compare?
 
 Reflecting on these questions and trying out the additional challenges will help you gain a deeper understanding of the machine learning concepts and improve your problem-solving skills.
-
 
 ## Great Job!
 
